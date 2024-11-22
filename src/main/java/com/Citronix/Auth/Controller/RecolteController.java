@@ -1,5 +1,6 @@
 package com.Citronix.Auth.Controller;
 
+import com.Citronix.Auth.Service.RecolteInterface;
 import com.Citronix.Auth.Service.RecolteService;
 import com.Citronix.Auth.dto.RecolteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/recoltes")
 public class RecolteController {
 
-    private final RecolteService recolteService;
+    private final RecolteInterface recolteService;
 
     @Autowired
     public RecolteController(RecolteService recolteService) {

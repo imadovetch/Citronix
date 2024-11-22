@@ -1,5 +1,6 @@
 package com.Citronix.Auth.Controller;
 
+import com.Citronix.Auth.Service.ArbreInterface;
 import com.Citronix.Auth.Service.ArbreService;
 import com.Citronix.Auth.dto.ArbreDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.List;
 public class ArbreController {
 
     @Autowired
-    private ArbreService arbreService;
+    private ArbreInterface arbreService;
 
 
     @PostMapping

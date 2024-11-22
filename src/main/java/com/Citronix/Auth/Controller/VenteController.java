@@ -1,5 +1,6 @@
 package com.Citronix.Auth.Controller;
 
+import com.Citronix.Auth.Service.VenteInterface;
 import com.Citronix.Auth.Service.VenteService;
 import com.Citronix.Auth.dto.VenteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.List;
 public class VenteController {
 
     @Autowired
-    private VenteService venteService;
+    private VenteInterface venteService;
 
     @PostMapping
     public ResponseEntity<?> createVente(@RequestBody VenteDTO venteDTO) {

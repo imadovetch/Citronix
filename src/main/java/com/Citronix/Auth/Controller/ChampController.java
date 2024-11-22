@@ -1,5 +1,6 @@
 package com.Citronix.Auth.Controller;
 
+import com.Citronix.Auth.Service.ChampInterface;
 import com.Citronix.Auth.Service.ChampService;
 import com.Citronix.Auth.dto.ChampDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/champs")
 public class ChampController {
 
-    private final ChampService champService;
+    private final ChampInterface champService;
 
     @Autowired
     public ChampController(ChampService champService) {

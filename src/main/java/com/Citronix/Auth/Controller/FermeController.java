@@ -1,5 +1,6 @@
 package com.Citronix.Auth.Controller;
 
+import com.Citronix.Auth.Service.FermeInterface;
 import com.Citronix.Auth.Service.FermeService;
 import com.Citronix.Auth.dto.FermeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("/fermes")
 public class FermeController {
 
-    private final FermeService fermeService;
+    private final FermeInterface fermeService;
 
     @Autowired
     public FermeController(FermeService fermeService) {
