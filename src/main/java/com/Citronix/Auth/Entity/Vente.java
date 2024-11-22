@@ -1,6 +1,7 @@
 package com.Citronix.Auth.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Vente {
     private Long id;
 
     // Date of sale
+    @FutureOrPresent
     @Column(nullable = false)
     private LocalDate dateVente;
 

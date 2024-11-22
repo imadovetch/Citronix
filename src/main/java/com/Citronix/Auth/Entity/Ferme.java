@@ -2,6 +2,7 @@ package com.Citronix.Auth.Entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Ferme {
     @Column(nullable = false)
     private Double superficie;
 
+    @FutureOrPresent
     @Column(name = "date_de_creation", nullable = false)
     private Date dateDeCreation;
 

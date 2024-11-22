@@ -1,7 +1,10 @@
 package com.Citronix.Auth.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.FutureOrPresent;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonBackReference; // import Jackson annotations
@@ -11,6 +14,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "arbres")
 public class Arbre {
@@ -25,6 +29,7 @@ public class Arbre {
 
     // Date of plantation
     @Column(nullable = false)
+    @FutureOrPresent
     private LocalDate datePlantation;
 
     // Preventing infinite recursion in serialization

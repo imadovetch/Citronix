@@ -2,6 +2,8 @@ package com.Citronix.Auth.Entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
+
 import java.time.LocalDate;
 
 @Entity
@@ -22,6 +24,7 @@ public class Recolte {
     @Column(nullable = false)
     private Season season;
 
+    @FutureOrPresent
     @Column(name = "date_recolte", nullable = false)
     private LocalDate dateRecolte;
 

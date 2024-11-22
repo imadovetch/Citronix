@@ -29,6 +29,10 @@ public class FermeService implements FermeInterface {
     public FermeDTO addFerme(FermeDTO fermeDTO) {
         Ferme ferme = fermeMapper.toEntity(fermeDTO);
 
+        if (ferme.getSuperficie() == null || ferme.getSuperficie() < 0.2) {
+            throw new IllegalArgumentException("La superficie de la ferme doit être supérieure ou égale à 0.2 hectares.");
+        }
+
         if (ferme.getDateDeCreation() == null) {
             ferme.setDateDeCreation(new Date());
         }
