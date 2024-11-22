@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChampService {
@@ -68,4 +69,13 @@ public class ChampService {
 
         return null;
     }
+
+
+    public ResponseEntity<?> getbyid(Long id) {
+
+
+        return new ResponseEntity<>(champRepository.findById(1), HttpStatus.OK);
+    }
+
+
 }

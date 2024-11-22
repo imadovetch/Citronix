@@ -22,4 +22,9 @@ public class ChampController {
 
         return champService.addChamp(champDTO);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<?> addChamp(@PathVariable("id") Long id) {
+        return champService.getbyid(id);
+    }
+
 }
