@@ -1,5 +1,6 @@
 package com.Citronix.Auth.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,5 +32,6 @@ public class Ferme {
     private Date dateDeCreation;
 
     @OneToMany(mappedBy = "ferme", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference // Allow serialization of the list of champs
     private List<Champ> champs;
 }
