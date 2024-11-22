@@ -2,26 +2,23 @@ package com.Citronix.Auth.mapper;
 
 import com.Citronix.Auth.Entity.Recolte;
 import com.Citronix.Auth.dto.RecolteDTO;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
-@Component
-public class RecolteMapper {
+import java.util.List;
 
-    public Recolte toEntity(RecolteDTO dto) {
-        Recolte recolte = new Recolte();
-        recolte.setDateRecolte(dto.dateRecolte());
-        recolte.setQuantiteTotale(dto.quantiteTotale());
-        recolte.setSeason(dto.season());
-        return recolte;
-    }
+@Mapper(componentModel = "spring")
+public interface RecolteMapper {
 
-    public RecolteDTO toDto(Recolte recolte) {
-        return new RecolteDTO(
-                recolte.getId(),
-                recolte.getChamp().getId(),
-                recolte.getSeason(),
-                recolte.getDateRecolte(),
-                recolte.getQuantiteTotale()
-        );
-    }
+    RecolteMapper INSTANCE = Mappers.getMapper(RecolteMapper.class);
+
+    // Convert DTO to Entity
+    @Mapping(target = "champ", ignore = true) // Champ should be set in the service layer
+    Recolte toEntity(RecolteDTO dto);
+
+    // Convert Entity to DTO
+    @Mapping(source = "champ.id", target = "champId")
+    RecolteDTO toDto(Recolte recolte);
+    List<RecolteDTO> toDtoList(List<Recolte> recolteList);
 }

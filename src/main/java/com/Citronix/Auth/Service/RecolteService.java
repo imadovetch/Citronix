@@ -98,7 +98,7 @@ public class RecolteService {
 
     public ResponseEntity<?> getAllRecoltes() {
         List<Recolte> recoltes = recolteRepository.findAll();
-        return new ResponseEntity<>(recolteMapper.toDto((Recolte) recoltes), HttpStatus.OK);
+        return new ResponseEntity<>(recolteMapper.toDtoList(recoltes), HttpStatus.OK);
     }
 
     public ResponseEntity<?> getRecolteById(int id) {
