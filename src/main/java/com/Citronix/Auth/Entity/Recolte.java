@@ -29,7 +29,7 @@ public class Recolte {
     private double quantiteTotale;
 
     // Getters and setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
