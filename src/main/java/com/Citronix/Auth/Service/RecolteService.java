@@ -8,6 +8,7 @@ import com.Citronix.Auth.exaption.ResourceNotFoundException;
 import com.Citronix.Auth.mapper.RecolteMapper;
 import com.Citronix.Auth.repository.RecolteRepository;
 import com.Citronix.Auth.repository.ChampRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import java.util.Optional;
 import java.util.List;
 
 @Service
+@Transactional
 public class RecolteService {
 
     private final RecolteRepository recolteRepository;
@@ -56,17 +58,17 @@ public class RecolteService {
     public Double calculateQuantite(Champ champ) {
         double totalQuantite = 0.0;
 
-        // Loop through the list of arbres in the champ
+
         for (Arbre arbre : champ.getArbres()) {
             int age = arbre.getÂge();
 
-            // Apply a simple logic based on tree age
+
             if (age >= 1 && age <= 3) {
-                totalQuantite += 2.5;  // Young trees contribute less quantity
+                totalQuantite += 2.5;
             } else if (age > 3 && age <= 10) {
-                totalQuantite += 12.0; // Mature trees contribute more quantity
+                totalQuantite += 12.0;
             } else if (age > 10) {
-                totalQuantite += 20.0; // Older trees contribute even more quantity
+                totalQuantite += 20.0;
             }
         }
 
@@ -117,7 +119,7 @@ public class RecolteService {
 
     private String validateRecolteForSeason(RecolteDTO dto, Champ champ) {
 
-        // Check if a recolte already exists for the same champ in the same season
+
         Optional<Recolte> lastRecolte = recolteRepository.findLatestRecolteByChampId((long) champ.getId());
 
         if (lastRecolte.isPresent()) {
@@ -128,19 +130,19 @@ public class RecolteService {
                 return "A recolte has already been recorded for this champ in the " + dto.season() + " season. last recolte was " + previousRecolte.getSeason();
             }
 
-            // Calculate the difference between the current date and the last recolte date
+
             LocalDate lastRecolteDate = previousRecolte.getDateRecolte();
             LocalDate currentRecolteDate = dto.dateRecolte();
 
             Period periodBetween = Period.between(lastRecolteDate, currentRecolteDate);
 
-            // Ensure at least 3 months have passed since the last recolte
+
             if (periodBetween.getMonths() < 3) {
                 return "At least 3 months must pass between each recolte. The last recolte was on: " + lastRecolteDate;
             }
         }
 
-        return null;  // Return null if everything is valid
+        return null;
     }
 
 }
