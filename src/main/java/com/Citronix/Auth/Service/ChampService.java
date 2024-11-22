@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class ChampService {
+public class ChampService implements ChampInterface {
 
     private final ChampRepository champRepository;
     private final FermeRepository fermeRepository;

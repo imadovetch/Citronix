@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class FermeService {
+public class FermeService implements FermeInterface {
 
     private final FermeRepository fermeRepository;
     private final FermeMapper fermeMapper;

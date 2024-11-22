@@ -2,9 +2,7 @@ package com.Citronix.Auth.Service;
 
 import com.Citronix.Auth.Entity.Arbre;
 import com.Citronix.Auth.Entity.Champ;
-import com.Citronix.Auth.Entity.Ferme;
 import com.Citronix.Auth.dto.ArbreDTO;
-import com.Citronix.Auth.dto.ChampDTO;
 import com.Citronix.Auth.exaption.ResourceNotFoundException;
 import com.Citronix.Auth.mapper.ArbreMapper;
 import com.Citronix.Auth.repository.ArbreRepository;
@@ -19,7 +17,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class ArbreService {
+public class ArbreService implements ArbreInterface {
 
     @Autowired
     private ArbreRepository arbreRepository;

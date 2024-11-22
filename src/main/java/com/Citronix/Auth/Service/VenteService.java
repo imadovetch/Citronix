@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class VenteService {
+public class VenteService implements VenteInterface{
 
     @Autowired
     private VenteRepository venteRepository;

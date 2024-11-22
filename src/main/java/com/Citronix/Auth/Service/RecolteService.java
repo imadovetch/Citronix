@@ -21,7 +21,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class RecolteService {
+public class RecolteService implements RecolteInterface {
 
     private final RecolteRepository recolteRepository;
     private final ChampRepository champRepository;
