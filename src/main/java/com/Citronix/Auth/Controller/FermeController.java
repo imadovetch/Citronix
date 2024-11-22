@@ -36,4 +36,9 @@ public class FermeController {
         FermeDTO ferme = fermeService.getFermeById(id);
         return ResponseEntity.ok(ferme);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<FermeDTO> DeleteById(@PathVariable int id) {
+        FermeDTO ferme = fermeService.delete(id);
+        return ResponseEntity.ok(ferme);
+    }
 }

@@ -7,6 +7,7 @@ import com.Citronix.Auth.mapper.ChampMapper;
 import com.Citronix.Auth.repository.ChampRepository;
 import com.Citronix.Auth.repository.FermeRepository;
 import com.Citronix.Auth.exaption.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class ChampService {
 
     private final ChampRepository champRepository;

@@ -9,6 +9,7 @@ import com.Citronix.Auth.exaption.ResourceNotFoundException;
 import com.Citronix.Auth.mapper.ArbreMapper;
 import com.Citronix.Auth.repository.ArbreRepository;
 import com.Citronix.Auth.repository.ChampRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Transactional
 public class ArbreService {
 
     @Autowired
